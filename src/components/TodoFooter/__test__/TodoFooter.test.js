@@ -9,20 +9,20 @@ const MockTodoFooter = ({ numberOfIncompleteTasks }) => {
   );
 };
 
-it("should render correct amount of incomplete tasks", async () => {
-  render(<MockTodoFooter numberOfIncompleteTasks={5} />);
+describe("Todo Footer", () => {
+  it("should render correct amount of incomplete tasks", async () => {
+    render(<MockTodoFooter numberOfIncompleteTasks={5} />);
 
-  const paragraphElement = screen.getByText(/5 tasks left/i);
+    const paragraphElement = screen.getByText(/5 tasks left/i);
 
-  expect(paragraphElement).toBeInTheDocument();
-});
+    expect(paragraphElement).toBeInTheDocument();
+  });
 
-
-it("should render 'task' when the number of incomplete task is 1", async () => {
+  it("should render 'task' when the number of incomplete task is 1", async () => {
     render(<MockTodoFooter numberOfIncompleteTasks={1} />);
-  
+
     const paragraphElement = screen.getByText(/1 task left/i);
-  
+
     expect(paragraphElement).toBeInTheDocument();
     expect(paragraphElement).toBeTruthy();
 
@@ -33,5 +33,6 @@ it("should render 'task' when the number of incomplete task is 1", async () => {
 
     expect(paragraphElement).toHaveTextContent("1 task left");
 
-    expect(paragraphElement.textContent).toBe("1 task left")
+    expect(paragraphElement.textContent).toBe("1 task left");
   });
+});
